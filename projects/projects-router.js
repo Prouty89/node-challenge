@@ -8,9 +8,9 @@ router.get('/', async (req, res) => {
     try {
         const projects = await Projects.getProjects();
         projects.forEach(project => {
-            project.completed == 'true'
-                ? project.completed = 1
-                : project.completed = 0  
+            project.completed == 1
+                ? project.completed = true 
+                : project.completed = false  
         })
         res.status(200).json(projects);
     } catch (error) {

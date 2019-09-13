@@ -9,8 +9,8 @@ router.get('/', async (req, res) => {
         const tasks = await Tasks.getTasks();
         tasks.forEach(task => {
             task.completed == 1
-                ? task.completed = 'true'
-                : task.completed = 'false'
+                ? task.completed = true
+                : task.completed = false
         })
         res.status(200).json(tasks);
     } catch (error) {
